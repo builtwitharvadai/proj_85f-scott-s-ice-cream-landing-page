@@ -29,3 +29,6 @@ yarn-error.log*
 *.temp
 *.bak
 *.cache
+
+# Claude CLI task files
+arvad_task_files/

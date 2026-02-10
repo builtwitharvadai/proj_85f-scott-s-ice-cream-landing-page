@@ -1,0 +1,928 @@
+/* ==========================================================================
+   CSS Reset & Normalize
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ==========================================================================
+   CSS Custom Properties (Design Tokens)
+   ========================================================================== */
+
+:root {
+  /* Ice Cream Brand Colors - Vibrant & Fun */
+  --color-pink-50: hsl(330, 100%, 98%);
+  --color-pink-100: hsl(330, 100%, 95%);
+  --color-pink-300: hsl(330, 85%, 75%);
+  --color-pink-500: hsl(330, 85%, 60%);
+  --color-pink-700: hsl(330, 85%, 45%);
+  --color-pink-900: hsl(330, 85%, 25%);
+
+  --color-blue-50: hsl(200, 100%, 98%);
+  --color-blue-100: hsl(200, 100%, 95%);
+  --color-blue-300: hsl(200, 90%, 70%);
+  --color-blue-500: hsl(200, 90%, 55%);
+  --color-blue-700: hsl(200, 90%, 40%);
+  --color-blue-900: hsl(200, 90%, 20%);
+
+  --color-yellow-50: hsl(45, 100%, 98%);
+  --color-yellow-100: hsl(45, 100%, 90%);
+  --color-yellow-300: hsl(45, 100%, 70%);
+  --color-yellow-500: hsl(45, 100%, 55%);
+  --color-yellow-700: hsl(45, 100%, 45%);
+
+  --color-purple-300: hsl(270, 70%, 75%);
+  --color-purple-500: hsl(270, 70%, 60%);
+  --color-purple-700: hsl(270, 70%, 45%);
+
+  /* Neutral Colors */
+  --color-white: hsl(0, 0%, 100%);
+  --color-gray-50: hsl(0, 0%, 98%);
+  --color-gray-100: hsl(0, 0%, 95%);
+  --color-gray-200: hsl(0, 0%, 90%);
+  --color-gray-300: hsl(0, 0%, 80%);
+  --color-gray-500: hsl(0, 0%, 60%);
+  --color-gray-700: hsl(0, 0%, 40%);
+  --color-gray-900: hsl(0, 0%, 10%);
+
+  /* Semantic Colors */
+  --color-primary: var(--color-pink-500);
+  --color-secondary: var(--color-blue-500);
+  --color-accent: var(--color-yellow-500);
+  --color-text: var(--color-gray-900);
+  --color-text-light: var(--color-gray-700);
+  --color-background: var(--color-white);
+
+  /* Spacing Scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Typography Scale */
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-heading: "Georgia", "Times New Roman", serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+
+  /* Container Max Width */
+  --container-max-width: 1200px;
+  --container-padding: var(--space-md);
+}
+
+/* ==========================================================================
+   Base Typography
+   ========================================================================== */
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+h1 {
+  font-size: var(--font-size-3xl);
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+/* ==========================================================================
+   Skip Link - Accessibility
+   ========================================================================== */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-sm) var(--space-md);
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 0 0 var(--radius-md) 0;
+  font-weight: var(--font-weight-semibold);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--color-gray-900);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+
+header {
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: box-shadow var(--transition-base);
+}
+
+.nav-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--space-md) var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+nav a {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 2px;
+  background: var(--color-primary);
+  transition: transform var(--transition-base);
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--color-primary);
+  background: var(--color-pink-50);
+}
+
+nav a:hover::after,
+nav a:focus-visible::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+nav a[aria-current="page"] {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ==========================================================================
+   Hero Section - Gradient Background
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  padding: var(--space-3xl) var(--container-padding);
+  background: linear-gradient(
+    135deg,
+    var(--color-pink-300) 0%,
+    var(--color-purple-300) 35%,
+    var(--color-blue-300) 70%,
+    var(--color-yellow-300) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift 10s ease infinite;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: var(--font-size-4xl);
+  color: var(--color-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: var(--space-lg);
+  animation: fade-in-up 0.8s ease-out;
+}
+
+.tagline {
+  font-size: var(--font-size-xl);
+  color: var(--color-white);
+  font-weight: var(--font-weight-semibold);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: var(--space-md);
+  animation: fade-in-up 0.8s ease-out 0.2s backwards;
+}
+
+.hero-description {
+  font-size: var(--font-size-lg);
+  color: var(--color-white);
+  max-width: 600px;
+  margin: 0 auto var(--space-xl);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+  animation: fade-in-up 0.8s ease-out 0.4s backwards;
+}
+
+.hero-image {
+  max-width: 600px;
+  margin: var(--space-2xl) auto 0;
+  animation: fade-in-up 0.8s ease-out 0.6s backwards;
+}
+
+.hero-image img {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  transition: transform var(--transition-slow);
+}
+
+.hero-image img:hover {
+  transform: scale(1.02);
+}
+
+/* ==========================================================================
+   CTA Button - Morphing Interactive States
+   ========================================================================== */
+
+.cta-button {
+  display: inline-block;
+  padding: var(--space-md) var(--space-2xl);
+  background: var(--color-white);
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  animation: fade-in-up 0.8s ease-out 0.8s backwards;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--color-pink-500);
+  transform: translate(-50%, -50%);
+  transition: width var(--transition-slow), height var(--transition-slow);
+  z-index: -1;
+}
+
+.cta-button:hover,
+.cta-button:focus-visible {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: var(--shadow-xl);
+  color: var(--color-white);
+}
+
+.cta-button:hover::before,
+.cta-button:focus-visible::before {
+  width: 300%;
+  height: 300%;
+}
+
+.cta-button:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Section Styles
+   ========================================================================== */
+
+section {
+  padding: var(--space-3xl) var(--container-padding);
+}
+
+section h2 {
+  text-align: center;
+  font-size: var(--font-size-3xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.section-description {
+  text-align: center;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-light);
+  max-width: 700px;
+  margin: 0 auto var(--space-2xl);
+}
+
+/* ==========================================================================
+   Flavors Section - CSS Grid Layout
+   ========================================================================== */
+
+.flavors-section {
+  background: linear-gradient(
+    to bottom,
+    var(--color-white) 0%,
+    var(--color-blue-50) 50%,
+    var(--color-pink-50) 100%
+  );
+}
+
+.flavors-grid {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+.flavor-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.flavor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.flavor-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.flavor-card:hover img {
+  transform: scale(1.1);
+}
+
+.flavor-card h3 {
+  padding: var(--space-lg) var(--space-lg) var(--space-sm);
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+  margin-bottom: 0;
+}
+
+.flavor-card p {
+  padding: 0 var(--space-lg) var(--space-lg);
+  color: var(--color-text-light);
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Business Info Section - Flexbox Layout
+   ========================================================================== */
+
+.business-info-section {
+  background: var(--color-gray-50);
+}
+
+.info-grid {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.info-card {
+  background: var(--color-white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.info-card h3 {
+  color: var(--color-primary);
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-md);
+}
+
+.info-card address {
+  font-style: normal;
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+}
+
+.info-card dl {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.info-card dt {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+.info-card dd {
+  color: var(--color-text-light);
+  margin-left: var(--space-md);
+}
+
+.info-card a {
+  color: var(--color-secondary);
+  text-decoration: underline;
+  transition: color var(--transition-base);
+}
+
+.info-card a:hover,
+.info-card a:focus-visible {
+  color: var(--color-primary);
+}
+
+.social-links {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ==========================================================================
+   Testimonials Section
+   ========================================================================== */
+
+.testimonials-section {
+  background: linear-gradient(
+    to bottom,
+    var(--color-yellow-50) 0%,
+    var(--color-pink-50) 100%
+  );
+}
+
+.testimonials-grid {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+.testimonial-card {
+  background: var(--color-white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  border-left: 4px solid var(--color-primary);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-left-color: var(--color-secondary);
+}
+
+.rating {
+  color: var(--color-yellow-500);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-md);
+}
+
+.testimonial-card blockquote {
+  margin: 0;
+}
+
+.testimonial-card blockquote p {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  font-style: italic;
+  margin-bottom: var(--space-md);
+  line-height: var(--line-height-relaxed);
+}
+
+.testimonial-card footer {
+  margin-top: var(--space-md);
+}
+
+.testimonial-card cite {
+  font-style: normal;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  background: var(--color-gray-900);
+  color: var(--color-gray-300);
+  padding: var(--space-2xl) var(--container-padding);
+}
+
+.footer-content {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  align-items: center;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+}
+
+footer a {
+  color: var(--color-gray-300);
+  transition: color var(--transition-base);
+}
+
+footer a:hover,
+footer a:focus-visible {
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Focus Visible Styles - Accessibility
+   ========================================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   Keyframe Animations
+   ========================================================================== */
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading state animation (for future use with JS) */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.loading {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    to right,
+    var(--color-gray-200) 0%,
+    var(--color-gray-100) 20%,
+    var(--color-gray-200) 40%,
+    var(--color-gray-200) 100%
+  );
+  background-size: 1000px 100%;
+}
+
+/* ==========================================================================
+   Media Queries - Mobile First Responsive Design
+   ========================================================================== */
+
+/* Tablet: 768px and up */
+@media (min-width: 768px) {
+  :root {
+    --font-size-3xl: 2.25rem;
+    --font-size-4xl: 3rem;
+    --font-size-5xl: 3.75rem;
+    --font-size-6xl: 4.5rem;
+    --container-padding: var(--space-xl);
+  }
+
+  .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: var(--font-size-2xl);
+  }
+
+  nav ul {
+    gap: var(--space-md);
+  }
+
+  .hero-content h1 {
+    font-size: var(--font-size-5xl);
+  }
+
+  .hero-section {
+    padding: var(--space-4xl) var(--container-padding);
+  }
+
+  .flavors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .info-card {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+/* Desktop: 1024px and up */
+@media (min-width: 1024px) {
+  :root {
+    --space-3xl: 5rem;
+    --space-4xl: 8rem;
+  }
+
+  .hero-content h1 {
+    font-size: var(--font-size-6xl);
+  }
+
+  .tagline {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero-description {
+    font-size: var(--font-size-xl);
+  }
+
+  .flavors-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .info-grid {
+    flex-wrap: nowrap;
+  }
+}
+
+/* Large Desktop: 1280px and up */
+@media (min-width: 1280px) {
+  .flavors-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion Support - Accessibility
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-section {
+    animation: none;
+  }
+
+  .cta-button::before {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  header,
+  footer,
+  .cta-button,
+  .skip-link {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+}
